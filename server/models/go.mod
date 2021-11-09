@@ -1,4 +1,4 @@
-module server/models
+module github.com/cloudnativedesign/contentmanager/server/models
 
 go 1.17
 

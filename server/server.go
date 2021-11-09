@@ -3,7 +3,6 @@ package server
 import (
 	"github.com/cloudnativedesign/contentmanager/server/controllers"
 	"github.com/cloudnativedesign/contentmanager/server/models"
-
 	"github.com/gin-gonic/gin"
 )
 
