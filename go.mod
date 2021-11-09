@@ -22,4 +22,4 @@ require (
 	gopkg.in/yaml.v2 v2.2.8 // indirect
 )
 
-replace contentmanager/server v0.0.0-unpublished => ./pkg/server
+replace contentmanager/server v0.0.0-unpublished => ./internal/server
