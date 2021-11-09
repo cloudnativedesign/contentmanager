@@ -14,6 +14,8 @@ func ConnectDatabase() {
 	}
 
 	database.AutoMigrate(&Article{})
+	database.AutoMigrate(&Author{})
+	database.AutoMigrate(&Tweet{})
 
 	DB = database
 }
