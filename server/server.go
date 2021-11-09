@@ -13,9 +13,13 @@ func Start() {
 
 	r.GET("/articles", controllers.GetArticles)
 
-	r.GET("/article/${id}", controllers.GetArticle)
+	r.GET("/article/:id", controllers.GetArticleById)
 
 	r.POST("/article", controllers.CreateArticle)
+
+	r.POST("/article/:id", controllers.UpdateArticle)
+
+	r.DELETE("/article/:id", controllers.DeleteArticle)
 
 	r.Run()
 }
