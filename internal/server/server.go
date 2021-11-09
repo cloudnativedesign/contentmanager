@@ -1,7 +1,8 @@
 package server
 
 import (
-	"net/http"
+	"github.com/cloudnativedesign/contentmanager/server/controllers"
+	"github.com/cloudnativedesign/contentmanager/server/models"
 
 	"github.com/gin-gonic/gin"
 )
@@ -9,13 +10,13 @@ import (
 func Start() {
 	r := gin.Default()
 
-	r.GET("/", func(c *gin.Context) {
-		c.JSON(http.StatusOK, gin.H{"data": "hello world!"})
-	})
+	models.ConnectDatabase()
 
-	r.GET("/test", func(c *gin.Context) {
-		c.JSON(http.StatusOK, gin.H{"data": "Some test data"})
-	})
+	r.GET("/articles", controllers.GetArticles)
+
+	r.GET("/article/${id}", controllers.GetArticle)
+
+	r.POST("/article", controllers.CreateArticle)
 
 	r.Run()
 }

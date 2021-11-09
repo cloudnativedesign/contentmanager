@@ -2,7 +2,7 @@ module main
 
 go 1.17
 
-require contentmanager/server v0.0.0-unpublished
+require github.com/cloudnativedesign/contentmanager/server v0.0.0-unpublished
 
 require (
 	github.com/gin-contrib/sse v0.1.0 // indirect
@@ -22,4 +22,4 @@ require (
 	gopkg.in/yaml.v2 v2.2.8 // indirect
 )
 
-replace contentmanager/server v0.0.0-unpublished => ./internal/server
+replace github.com/cloudnativedesign/contentmanager/server v0.0.0-unpublished => ./internal/server

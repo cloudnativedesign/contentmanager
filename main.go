@@ -1,7 +1,7 @@
 package main
 
 import (
-	"contentmanager/server"
+	"github.com/cloudnativedesign/contentmanager/server"
 )
 
 func main() {
