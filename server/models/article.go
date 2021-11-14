@@ -1,19 +1,15 @@
 package models
 
 import (
-	"time"
-
 	"gorm.io/gorm"
 )
 
 type Article struct {
 	gorm.Model
-	Title     string    `json:"title"`
-	Subtitle  string    `json:"subtitle"`
-	Content   string    `json:"content"`
-	CreatedAt time.Time `json:"created_at";autoCreateTime:milli`
-	UpdatedAt time.Time `json:"updated_at";autoUpdateTime:milli`
-	Author    Author    `gorm:"embedded";embeddedPrefix:author_`
+	Title    string `json:"title"`
+	Subtitle string `json:"subtitle"`
+	Content  string `json:"content"`
+	Author   Author `gorm:"embedded";embeddedPrefix:author_`
 }
 
 type CreateArticleInput struct {
