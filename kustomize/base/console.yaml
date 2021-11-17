@@ -1,0 +1,58 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: olm-console
+  namespace: olm
+  labels:
+    app: olm-console
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: olm-console
+  template:
+    metadata:
+      labels:
+        app: olm-console
+    spec:
+      containers:
+      - name: olm-console
+        image: quay.io/openshift/origin-console:latest
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 100m
+            memory: 128Mi
+        env:
+        - name: BRIDGE_USER_AUTH
+          value: disabled
+        - name: BRIDGE_K8S_MODE
+          value: off-cluster
+        - name: BRIDGE_K8S_MODE_OFF_CLUSTER_ENDPOINT
+          value: https://kubernetes.default
+        - name: BRIDGE_K8S_MODE_OFF_CLUSTER_SKIP_VERIFY_TLS
+          value: "true"
+        - name: BRIDGE_K8S_AUTH
+          value: bearer-token
+        - name: BRIDGE_K8S_AUTH_BEARER_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: olm-operator-serviceaccount-token-p6qp7
+              key: token
+      serviceAccount: olm-operator-serviceaccount
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: olm-console
+  namespace: olm
+spec:
+  selector:
+    app: olm-console
+  ports:
+  - name: http
+    port: 80
+    targetPort: 9000
+  type: ClusterIP
