@@ -2,15 +2,6 @@
 	"folders": [
 		{
 			"path": "."
-		},
-		{
-			"path": "server/controllers"
-		},
-		{
-			"path": "server/models"
-		},
-		{
-			"path": "server"
 		}
 	],
 	"settings": {}
