@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package service;
+
+option go_package = "internal/gRPC/service";
+
+import "internal/proto-files/domain/spokenContent.proto";
+
+// Define Service
+service RecordingService {
+    // CRUD
+    rpc add (domain.AudioRecording) returns (AddAudioRecordingResponse);
+    rpc update (domain.AudioRecording) returns (UpdateRecordingResponse);
+    rpc delete (DeleteAudioRecordingRequest) returns (DeleteAudioRecordingResponse);
+    
+    // Interaction
+    
+    // Management
+    // rpc summarize (SummarizeRecordingRequest) returns (SummarizeRecordingResponse);
+}
+
+// CRUD
+message AddAudioRecordingResponse {}
+message UpdateRecordingResponse{}
+message DeleteAudioRecordingRequest{}
+message DeleteAudioRecordingResponse{}

@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package service;
+
+option go_package = "internal/gRPC/service";
+
+import "internal/proto-files/domain/writtenContent.proto";
+
+// Define Service
+service ArticleService {
+    // CRUD
+    rpc add (domain.Article) returns (AddArticleResponse);
+    rpc update (domain.Article) returns (UpdateArticleResponse);
+    rpc delete (DeleteArticleRequest) returns (DeleteArticleResponse);
+    
+    // Interaction
+    
+    // Management
+    
+    
+}
+
+// CRUD
+message AddArticleResponse {}
+message UpdateArticleResponse {}
+message DeleteArticleRequest {}
+message DeleteArticleResponse {}

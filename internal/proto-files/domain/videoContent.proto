@@ -4,15 +4,11 @@ package domain;
 
 option go_package = "internal/gRPC/domain";
 
-message ContentLink {
-    uint64 video_id = 1;
-    string url = 2;
-}
-
+import "internal/proto-files/domain/sharedtypes.proto";
 
 message Video {
     uint64 id = 1;
-    ContentLink link = 2;
+    domain.ContentLink link = 2;
     string titel = 3;
     string descr = 4;   
 }

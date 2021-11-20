@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package domain;
+
+option go_package = "internal/gRPC/domain";
+
+// Supporting types
+message ContentLink {
+    uint32 contentId = 1;
+    string url = 2;
+}

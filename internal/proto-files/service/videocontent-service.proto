@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package service;
+
+option go_package = "internal/gRPC/service";
+
+import "internal/proto-files/domain/videoContent.proto";
+
+// Define Service
+service VideoService {
+    // CRUD Video
+    rpc add_video (domain.Video) returns (AddVideoResponse);
+    rpc update_video (domain.Video) returns (UpdateVideoResponse);
+    rpc delete_video (DeleteVideoRequest) returns (DeleteVideoResponse);
+    
+    // Interaction
+    
+
+}
+
+// CRUD
+message AddVideoResponse {}
+message UpdateVideoResponse {}
+message DeleteVideoRequest {}
+message DeleteVideoResponse {}

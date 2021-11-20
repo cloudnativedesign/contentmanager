@@ -1,6 +1,13 @@
 #!/bin/bash
-# Account Service
+# Compile domain types
+protoc -I. --go_out=. --go-grpc_out=.  \
+internal/proto-files/domain/writtenContent.proto \
+internal/proto-files/domain/videoContent.proto \
+internal/proto-files/domain/spokenContent.proto
 
-protoc -I. --go_out=. --go-grpc_out=.  internal/proto-files/domain/account.proto
-protoc -I. --go_out=. --go-grpc_out=.  internal/proto-files/service/account-service.proto
+# Compile services
+protoc -I. --go_out=. --go-grpc_out=.  \
+internal/proto-files/service/writtencontent-service.proto \
+internal/proto-files/service/videocontent-service.proto \
+internal/proto-files/service/spokencontent-service.proto
 

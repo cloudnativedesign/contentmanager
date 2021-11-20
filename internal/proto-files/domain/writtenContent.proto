@@ -5,11 +5,11 @@ package domain;
 option go_package = "internal/gRPC/domain";
 
 enum Contenttype {
-    POST = 1;
-    ARTICLE = 2;
-    REACTION = 3;
-    TWEET = 4;
-    BLOG = 5;
+    POST = 0;
+    ARTICLE = 1;
+    REACTION = 2;
+    TWEET = 3;
+    BLOG = 4;
 }
 
 // Supporting definitions

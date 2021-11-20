@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package domain;
+
+option go_package = "internal/gRPC/service";
+import "internal/proto-files/domain/sharedtypes.proto";
+
+
+// Content element categories
+message AudioRecording {
+    uint32 id = 1;
+    string title = 2;
+    domain.ContentLink link = 3;    
+}
+
+// Composite types
+message Interview {
+    uint32 id = 1;
+    uint32 author_id = 2;
+    uint32 guest_id = 3;
+    string topic = 4; 
+    string title = 5;
+}
+
